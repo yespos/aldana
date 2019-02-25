@@ -1,0 +1,26 @@
+#containerQR {
+    display: inline-block;
+    margin: 20px auto;
+    box-shadow: 0 0 16px rgba(0,0,0,0.5);
+    -webkit-print-color-adjust: exact;
+}
+
+#containerQR > * {
+    display: block;
+}
+
+
+
+#text {
+    height: 48px;
+}
+
+@media print {
+    #container {
+        box-shadow: none;
+    }
+
+    .control {
+        display: none;
+    }
+}

@@ -1,0 +1,2 @@
+[16-Aug-2018 15:42:00 Asia/Dubai] PHP Parse error:  syntax error, unexpected 'list' (T_LIST), expecting identifier (T_STRING) in /home4/zb9yviv9/yespos.me/aldanaservice/application/controllers/Jobcard.php on line 361
+[26-Aug-2018 10:35:22 Asia/Dubai] PHP Parse error:  syntax error, unexpected 'list' (T_LIST), expecting identifier (T_STRING) in /home4/zb9yviv9/yespos.me/aldanaservice/application/controllers/Ecowash.php on line 50

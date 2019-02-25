@@ -1,0 +1,61 @@
+ <!-- footer content -->
+        <footer>
+          <div class="pull-right">
+            Al DANA SERVICE STATION - Powered by <a href="https://www.yespos.me">YES POS</a>
+          </div>
+          <div class="clearfix"></div>
+        </footer>
+        <!-- /footer content -->
+      </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="<?=base_url() ?>assets/vendors/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="<?=base_url() ?>assets/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- FastClick -->
+    <script src="<?=base_url() ?>assets/vendors/fastclick/lib/fastclick.js"></script>
+    <!-- NProgress -->
+    <script src="<?=base_url() ?>assets/vendors/nprogress/nprogress.js"></script>
+    <!-- Chart.js -->
+    <script src="<?=base_url() ?>assets/vendors/Chart.js/dist/Chart.min.js"></script>
+    <!-- ECharts -->
+    <script src="<?=base_url() ?>assets/vendors/echarts/dist/echarts.min.js"></script>
+    <!-- gauge.js -->
+    <script src="<?=base_url() ?>assets/vendors/gauge.js/dist/gauge.min.js"></script>
+    <!-- bootstrap-progressbar -->
+    <script src="<?=base_url() ?>assets/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+    <!-- iCheck -->
+    <script src="<?=base_url() ?>assets/vendors/iCheck/icheck.min.js"></script>
+
+    <!-- Datatables -->
+   <script src="<?=base_url() ?>assets/vendors/datatables.net/js/jquery.dataTables.min.js"></script>
+   <script src="<?=base_url() ?>assets/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+
+   <!-- for Datatables prints -->
+   <script src="<?=base_url() ?>assets/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+    <script src="<?=base_url() ?>assets/vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="<?=base_url() ?>assets/vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+    <script src="<?=base_url() ?>assets/vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
+    <script src="<?=base_url() ?>assets/vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
+    <script src="<?=base_url() ?>assets/vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
+   
+  <script src="<?=base_url() ?>assets/vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+  <script src="<?=base_url() ?>assets/vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
+  <!-- jQuery custom content scroller -->
+  <script src="<?=base_url() ?>assets/vendors/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
+
+  <!-- datepicker -->
+
+<script src="<?php echo base_url('assets/'); ?>plugins/datepicker/bootstrap-datepicker.js"></script>
+<!-- PNotify -->
+  <script src="<?=base_url() ?>assets/vendors/pnotify/dist/pnotify.js"></script>
+  <script src="<?=base_url() ?>assets/vendors/pnotify/dist/pnotify.buttons.js"></script>
+  <script src="<?=base_url() ?>assets/vendors/pnotify/dist/pnotify.nonblock.js"></script>
+
+    
+    <!-- DateJS -->
+    <script src="<?=base_url() ?>assets/vendors/DateJS/build/date.js"></script>
+    <!-- bootstrap-daterangepicker -->
+    <script src="<?=base_url() ?>assets/vendors/moment/min/moment.min.js"></script>
+    <script src="<?=base_url() ?>assets/vendors/bootstrap-daterangepicker/daterangepicker.js"></script>

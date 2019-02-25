@@ -1,0 +1,49 @@
+#itemContainer{
+	list-style:none;
+	margin:0;
+	padding:0;
+}
+.holder {
+	margin: 15px 0;
+	float:right;
+	border:1px solid #CCC;
+	border-radius:3px;
+}
+
+.holder a {
+	display:inline-block;
+	font-family:Verdana, Geneva, sans-serif;
+	font-size: 11px;
+	cursor: pointer;
+	color: #333;
+	padding:10px;
+	text-decoration:none;
+	background-color:#26b99a;
+	border-right:1px solid #fff;
+}
+
+.holder a:hover {
+	background-color: #169f85;
+	color: #fff;
+}
+
+.holder a.jp-previous { margin-right: 0px; background-color:#f0ad4e; }
+.holder a.jp-next { margin-left: 0px;  background-color:#f0ad4e; border:none;}
+
+.holder a.jp-current, a.jp-current:hover { 
+	background-color:#169f85;
+	color: #FFF;
+	font-weight: bold;
+
+}
+
+.holder a.jp-disabled, a.jp-disabled:hover {
+	color: #fff;
+}
+
+.holder a.jp-current, a.jp-current:hover,
+.holder a.jp-disabled, a.jp-disabled:hover {
+	cursor: default;
+}
+
+.holder span { margin: 0 5px; }
