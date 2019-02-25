@@ -23,9 +23,9 @@
                           <th>To</th>
                           <!--   <th>Sales Category</th> -->
                           <th>Payment Type</th>
-													<th>Shift</th>
+                          <th>Shift</th>
                           <th>Tax Inc Desc.</th>
-													<th>Assigned To</th>
+                          <th>Assigned To</th>
                           <th><span > </span>
                           <button type="button" id="refresh" class="btn btn-success"><i class="fa fa-refresh" aria-hidden="true"></i> All Reports</button> 
                           </th>
@@ -60,7 +60,7 @@
                            <?php } } ?>
                            </select>
                            </td>
-													 <td><select class="select2_group form-control" name="shift" id="shift">
+                           <td><select class="select2_group form-control" name="shift" id="shift">
                            <option value="">Select</option>
                            <?php foreach ($shifts as $key => $value) {
                              if(isset($post['shift']))
@@ -70,8 +70,8 @@
                                 else
                                 { $selected =""; }
                             ?>
-													  <option value="<?=$value->id ?>" <?=$selected ?> > <?=$value->name ?> </option>      
-													 <?php  } ?>
+                            <option value="<?=$value->id ?>" <?=$selected ?> > <?=$value->name ?> </option>      
+                           <?php  } ?>
                            </select></td>
                            
                            <td><select class="select2_group form-control" name="tx_desc" id="tx_desc">
@@ -102,7 +102,7 @@
                            <option value="<?=$value->id ?>" <?=$selected ?>> <?=$value->name ?> </option>
                            <?php // } ?>
                            </select></td> -->
-													 <td><select class="select2_group form-control" name="assigned_to" id="assigned_to">
+                           <td><select class="select2_group form-control" name="assigned_to" id="assigned_to">
                            <option value="">Select</option>
                            <?php foreach ($worker as $key => $value) { 
                             if(isset($where['assigned_to']))
@@ -112,8 +112,8 @@
                                 else
                                 { $selected =""; } 
                             ?>
-													 <option value="<?=$value->id ?>" <?=$selected ?>> <?=$value->name ?> </option>      
-													 <?php  } ?>
+                           <option value="<?=$value->id ?>" <?=$selected ?>> <?=$value->name ?> </option>      
+                           <?php  } ?>
                            </select></td>
                           <td><button type="submit" class="btn btn-primary mb-2">Search</button></td>
                           </form>                   
@@ -141,7 +141,7 @@
                           <th>Car Plate</th>
                           <th>Tax Inv Desc.</th>
                           <th>Customer Name</th>
-													<th>Shift</th>
+                          <th>Shift</th>
                           <!-- <th>Service</th> -->
                           <th>Payment Type</th>
                           <th>Amount</th>
@@ -149,7 +149,7 @@
                           <th>F.O.C</th>
                           <th>Disc.</th>
                           <th>Total</th>
-                          <th>DateTime</th>
+                          <th>Date</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -182,7 +182,7 @@
                         <!--   <td><?=username($list->user_id) ?></td> -->
                           <td><?=$list->tx_desc ?></td>
                           <td><?=$list->customer_name ?></td>
-													<td><?=shift_name($list->shift_id) ?></td>
+                          <td><?=shift_name($list->shift_id) ?></td>
                          <!--  <td><?=$service ?></td> -->
                           <td><?=paymentModeName($list->pay_type) ?></td>
                           <td><?=$list->amount ?></td>
@@ -190,7 +190,7 @@
                           <td><?=$list->foc ?></td>
                           <td><?=$list->discount ?></td>
                           <td><?=$list->total ?></td>
-                          <td><?=date('m/d/Y H:i:s',$list->created_at); ?></td>
+                          <td><?=$list->date  ?><?php // date('m/d/Y H:i:s',$list->created_at); ?></td>
                         </tr>
                        <?php  $i++; } ?>
                         <tr>
@@ -198,7 +198,7 @@
                           <td></td>
                           <td></td>
                           <td></td>
-													<td></td>
+                          <td></td>
                           <td></td>
                           <td></td>
                          <!--  <td> <b> Total Report</td> -->

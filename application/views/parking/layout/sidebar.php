@@ -51,8 +51,10 @@
         <ul class="nav child_menu">
         <li><a href="<?=base_url('') ?>ecowash/report"><i class="fa fa-tasks"></i>Ecowash Report</a></li>
        <li><a href="<?=base_url('') ?>jobcard/report"><i class="fa fa-tasks"></i>Jobcard Report </a></li>
-        <li><a href="<?=base_url('') ?>jobcard/daily_report"><i class="fa fa-tasks"></i>All Report </a></li>
-        <li><a href="<?=base_url('') ?>jobcard/tax_report"><i class="fa fa-tasks"></i>Tax Report </a></li>
+       <li><a href="<?=base_url('') ?>jobcard/daily_report"><i class="fa fa-tasks"></i>All Report </a></li>
+       <li><a href="<?=base_url('') ?>jobcard/tax_report"><i class="fa fa-tasks"></i>Tax Report </a></li>
+       <li><a href="<?=base_url('') ?>purchase/report"><i class="fa fa-tasks"></i>Purchase Report </a></li>
+       <li><a href="<?=base_url('') ?>purchase_return/report"><i class="fa fa-tasks"></i>Purchase Return Report</a></li>
         </ul>
       </li>
 
