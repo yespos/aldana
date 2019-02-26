@@ -99,10 +99,26 @@ function username($id)
     return $CI->db->select(['name'])->where('id',$id)->get('admin')->row()->name;
 }
 
-function multipayment($id,$payid)
+function multipayment($id,$payid =null)
 {  
     $CI = &get_instance();
-    return $CI->db->where('jobcard_id',$id)->where('payment_id',$payid)->get('multipayment')->result();
+    $CI->db->where('jobcard_id',$id);
+    if($payid){
+    $CI->db->where('payment_id',$payid);
+    }
+    return $CI->db->get('multipayment')->result();
+}
+
+function paymentstatus($id)
+{  
+    $CI = &get_instance();
+    $CI->db->where('jobcard_id',$id);
+    $data = $CI->db->get('multipayment')->result();
+    $i=0;
+    foreach ($data as $key => $value) {
+      if()
+      $payment['paytype'][] = 
+    }
 }
 
 function getShift()
