@@ -77,7 +77,7 @@
                           <th>Tax</th>
                          <!--  <th>F.O.C</th> -->
                           <th>Total</th>
-                          <th>DateTime</th>
+                          <th>Date</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -116,7 +116,7 @@
                           <td><?=$list->vat ?></td>
                          <!--  <td><?=$list->foc ?></td> -->
                           <td><?=$list->total ?></td>
-                          <td><?=date('m/d/Y H:i:s',$list->date); ?> </td>
+                          <td><?=$list->date ?> </td>
                         </tr>
                        <?php  $i++; } ?>
              <?php

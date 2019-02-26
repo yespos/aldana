@@ -41,8 +41,8 @@
                                 <option value="<?=$value->id?>" <?=$selected ?>><?=$value->name ?> </option>
                            <?php } } ?>
                            </select>
-                        </div>
-                        <div class="col-md-1 col-sm-3 col-xs-12">
+                          </div>
+                          <div class="col-md-1 col-sm-3 col-xs-12">
                           <label class="control-label" style="color:#000;" for="first-name">Shift </label>
                           <select class="select2_group form-control" name="shift" id="shift">
                            <option value="">Select</option>
@@ -54,11 +54,12 @@
                                 else
                                 { $selected =""; }
                             ?>
-													  <option value="<?=$value->id ?>" <?=$selected ?> > <?=$value->name ?> </option>      
-													 <?php  } ?>
+
+							 <option value="<?=$value->id ?>" <?=$selected ?> > <?=$value->name ?> </option>      
+							 <?php  } ?>
                            </select>
-                        </div>
-                        <div class="col-md-2 col-sm-3 col-xs-12">
+                          </div>
+                          <div class="col-md-2 col-sm-3 col-xs-12">
                           <label class="control-label" style="color:#000;" for="first-name">Tax Inc Desc. </label>
                           <select class="select2_group form-control" name="tx_desc" id="tx_desc">
                            <option value="">Select</option>
@@ -74,7 +75,8 @@
                            <option value="<?=$value->tx_desc ?>" <?=$selected ?>> <?=$value->tx_desc ?> </option>
                            <?php  } } ?>
                            </select>
-                        </div>
+                          </div>
+                        
                         <div class="col-md-2 col-sm-3 col-xs-12">
                           <label class="control-label" style="color:#000;" for="first-name">Assigned To </label>
                           <select class="select2_group form-control" name="assigned_to" id="assigned_to">
@@ -90,12 +92,11 @@
 							<option value="<?=$value->id ?>" <?=$selected ?>> <?=$value->name ?> </option>      
 													 <?php  } ?>
                            </select>
-                        </div>
-                        <div class="col-md-1 col-sm-2 col-xs-12">
+                          </div>
+                           <div class="col-md-1 col-sm-2 col-xs-12">
                           <button type="button" id="refresh" class="btn btn-success"><i class="fa fa-refresh" aria-hidden="true"></i> All Reports</button> 
                           <button type="submit" class="btn btn-primary mb-2">Search</button>
                         </div>
-                   </form>
                   </div>
                   
                   <div class="clearfix"></div>
@@ -119,7 +120,7 @@
                           <th>Car Plate</th>
                           <th>Tax Inv Desc.</th>
                           <th>Customer Name</th>
-													<th>Shift</th>
+                          <th>Shift</th>
                           <!-- <th>Service</th> -->
                           <th>Payment Type</th>
                           <th>Amount</th>
@@ -127,7 +128,7 @@
                           <th>F.O.C</th>
                           <th>Disc.</th>
                           <th>Total</th>
-                          <th>DateTime</th>
+                          <th>Date</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -160,7 +161,7 @@
                         <!--   <td><?=username($list->user_id) ?></td> -->
                           <td><?=$list->tx_desc ?></td>
                           <td><?=$list->customer_name ?></td>
-													<td><?=shift_name($list->shift_id) ?></td>
+                          <td><?=shift_name($list->shift_id) ?></td>
                          <!--  <td><?=$service ?></td> -->
                           <td><?=paymentModeName($list->pay_type) ?></td>
                           <td><?=$list->amount ?></td>
@@ -168,7 +169,7 @@
                           <td><?=$list->foc ?></td>
                           <td><?=$list->discount ?></td>
                           <td><?=$list->total ?></td>
-                          <td><?=date('m/d/Y H:i:s',$list->created_at); ?></td>
+                          <td><?=$list->date  ?><?php // date('m/d/Y H:i:s',$list->created_at); ?></td>
                         </tr>
                        <?php  $i++; } ?>
                         <tr>
@@ -176,7 +177,7 @@
                           <td></td>
                           <td></td>
                           <td></td>
-													<td></td>
+                          <td></td>
                           <td></td>
                           <td></td>
                          <!--  <td> <b> Total Report</td> -->

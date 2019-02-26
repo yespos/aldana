@@ -19,7 +19,7 @@
                   </div>
                   <!--Alerts End-->
                   <div class="x_title">
-                    <h2>Purchase Report <small>Information</small></h2>
+                    <h2>Purchase Return Report <small>Information</small></h2>
                     <ul class="nav navbar-right panel_toolbox">
                  <!--  <li> <a class="collapse-link"><i class="fa fa-chevron-up"></i></a> </li> -->
                     </ul>
@@ -36,9 +36,8 @@
                   <th><?php echo $this->lang->line('purchase_reference_no'); ?></th>
                   <th><?php echo "Product"; ?></th>
                   <th><?php echo $this->lang->line('purchase_supplier'); ?></th>
-                  <th><?php echo $this->lang->line('purchase_purchase_status'); ?></th>
                   <th><?php echo $this->lang->line('purchase_grand_total'); ?></th>
-                  <th><?php echo $this->lang->line('sales_payment_status'); ?></th>
+                  
                   <!-- <th><?php // echo $this->lang->line('product_action'); ?></th> -->
                 </tr>
                 </thead>
@@ -46,8 +45,8 @@
                   <?php 
                   $i=1;
                     foreach ($data as $row) {
-                      $id= $row->purchase_id;
-                      $products = $this->db->select('pi.quantity,f.item')->from('purchase_items pi')->join('filterservice f','f.id = pi.product_id')->where('pi.purchase_id',$id)->get()->result();
+                      $id= $row->id;
+                      $products = $this->db->select('pi.quantity,f.item')->from('purchase_return_items pi')->join('filterservice f','f.id = pi.product_id')->where('pi.purchase_return_id',$id)->get()->result();
                       // print_r($products);
                   ?>
                     <tr>
@@ -58,33 +57,14 @@
                         echo $value->item."(".$value->quantity."), ";
                       }   ?></td>
                       <td><?php echo $row->supplier_name; ?></td>
-                      <td align="center"><span class="label label-success"><?php echo $this->lang->line('purchase_received'); ?></span></td>
+                     
                       <td align="right"><?php echo $this->session->userdata('symbol').$row->total; ?></td>
-                      <td align="center">
-                        <?php if($row->paid_amount == 0.00){ ?>
-                          <span class="label label-warning"><?php echo $this->lang->line('sales_pending'); ?></span>
-                        <?php }else{ ?>
-                          <span class="label label-success"><?php echo "Paid"; ?></span>
-                        <?php } ?>
-                      </td>
-                      
                     </tr>
                   <?php
                   $i++;
                     }
                   ?>
-               <!--  <tfoot>
-                <tr>
-                  <th><?php echo $this->lang->line('product_no'); ?></th>
-                  <th><?php echo $this->lang->line('purchase_date'); ?></th>
-                  <th><?php echo $this->lang->line('purchase_reference_no'); ?></th>
-                  <th><?php echo $this->lang->line('purchase_supplier'); ?></th>
-                  <th><?php echo $this->lang->line('purchase_purchase_status'); ?></th>
-                  <th><?php echo $this->lang->line('purchase_grand_total'); ?></th>
-                  <th><?php echo $this->lang->line('sales_payment_status'); ?></th>
-                  <th><?php echo $this->lang->line('product_action'); ?></th>
-                </tr>
-                </tfoot> -->
+             
                       </table>
                     </div>
                   </div>

@@ -259,6 +259,14 @@ class Purchase_return extends MY_Controller {
         }
     }
 
+    public function report() {
+        //get purchase return to display list
+        $data['data'] = $this->purchase_return_model->getPurchaseReturn();
+        // $this->load->view('purchase_return/list',$data);
+        $data['subview'] = $this->load->view('parking/purchase_return/report', $data, TRUE);
+        $this->load->view('_layout_main', $data);
+    }
+
 }
 
 ?>
