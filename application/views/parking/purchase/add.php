@@ -13,7 +13,7 @@
                 <div class="box-body">
               <div class="row">
                 <form role="form" id="form" method="post" action="<?php echo base_url('purchase/addPurchase');?>">
-                <div class="col-sm-6">
+                <div class="col-sm-6 col-xs-12">
                 <div class="form-group">
                   <label for="date"><?php echo "Date"; ?><span class="validation-color">*</span></label>
                     <input type="text" class="form-control datepicker" id="date" name="date" value="<?php echo date("Y-m-d");  ?>">
@@ -36,7 +36,7 @@
                     <span class="validation-color" id="err_reference_no"><?php echo form_error('reference_no'); ?></span>
                   </div>
                 </div>
-                <div class="col-sm-6">
+                <div class="col-sm-6 col-xs-12">
                   <div class="form-group">
                     <label for="warehouse"><?php echo "Warehouse"; ?><span class="validation-color">*</span></label>
                     <select class="form-control select2_group select2" id="warehouse" name="warehouse" style="width: 100%;">
@@ -45,7 +45,7 @@
                     <span class="validation-color" id="err_warehouse"><?php echo form_error('warehouse'); ?></span>
                   </div>
                 </div>
-                <div class="col-sm-6">
+                <div class="col-sm-6 col-xs-12">
                   <div class="form-group">
                     <label for="supplier"><?php echo "Supplier"; ?> <span class="validation-color">*</span></label>
                     <select class="form-control select2_group select2" id="supplier" name="supplier" style="width: 100%;">
@@ -59,10 +59,10 @@
                     <span class="validation-color" id="err_supplier"><?php echo form_error('supplier'); ?></span>
                   </div>
                 </div>
-                <div class="col-sm-12">
-                  <br><br><br><br>
-                <div class="col-sm-2"><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" style="height: 32px;font-size: 12px;">Add New Item</button></div>
-                  <div class="col-sm-5">
+                <div class="clearfix" style="clear:both; height:30px;"></div>
+                <div class="col-sm-12 col-xs-12">
+                <div class="col-sm-1 col-xs-12"><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" style="height: 32px;font-size: 12px;">Add New Item</button></div>
+                  <div class="col-sm-5 col-xs-12">
                     <div class="form-group">
                       <select class="form-control select2_group select2" id="product" name="product" style="width: 100%;">
                       <option value=""><?php echo "Select"; ?> </option>
@@ -76,14 +76,14 @@
                       </select>
                     </div> <!--/form group  -->
                   </div> <!--/col-md-6 -->
-                  <div class="col-sm-4">
+                  <div class="col-sm-4 col-xs-12">
                     <span class="validation-color" id="err_product"></span>
                   </div>
                 </div> <!--/col-md-12 -->
-                <div class="col-sm-12">
+                <div class="col-sm-12 col-xs-12">
                   <div class="form-group">
                   <label><?php echo $this->lang->line('purchase_inventory_items'); ?></label>
-                    <div style="overflow-y: auto;">
+                    <div class="table-responsive">
                     <table class="table items table-striped table-bordered table-condensed table-hover product_table" name="product_data" id="product_data">
                       <thead>
                         <tr>
@@ -106,7 +106,7 @@
                         
                       </tbody>
                     </table>
-                    </div>
+                    
                     <input type="hidden" name="total_value" id="total_value">
                     <input type="hidden" name="total_discount" id="total_discount">
                     <input type="hidden" name="total_tax" id="total_tax">
@@ -135,9 +135,10 @@
                         <td align='right'><?php echo $this->session->userdata('symbol'); ?><span id="grandTotal">&nbsp;0.00</span></td>
                       </tr>
                     </table>
+                    </div>
                   </div>
                 </div>
-                <div class="col-sm-12">
+                <div class="col-sm-12  col-xs-12">
                   <div class="form-group">
                       <label for="note"><?php echo $this->lang->line('purchase_note'); ?></label>
                       <textarea class="form-control" id="note" name="note"><?php echo set_value('details'); ?></textarea>
@@ -145,7 +146,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="col-sm-12">
+                <div class="col-sm-12  col-xs-12">
                   <div class="box-footer">
                     <button type="submit" id="submit" class="btn btn-info">&nbsp;&nbsp;&nbsp;<?php echo "Add"; ?>&nbsp;&nbsp;&nbsp;</button>
                     <span class="btn btn-default" id="cancel" style="margin-left: 2%" onclick="cancel('purchase')"><?php echo "Cancel"; ?></span>

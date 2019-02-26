@@ -1,6 +1,3 @@
- <style type="text/css">
-  
- </style>
  <script>
   $( function() {
     $( ".date-picker" ).datepicker();
@@ -27,26 +24,13 @@
                   <div class="x_title">
                     <h2>Job <small>Card</small></h2>
                     <ul class="nav navbar-right panel_toolbox">
-                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                      </li>
-                        <!--    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"> <i class="fa fa-wrench"></i> </a>
-                        <ul class="dropdown-menu" role="menu">
-                          <li><a href="#">Settings 1</a>
-                          </li>
-                          <li><a href="#">Settings 2</a>
-                          </li>
-                        </ul>
-                      </li> -->
-                     <!--  <li><a class="close-link"><i class="fa fa-close"></i></a>
-                      </li> -->
+                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
                     </ul>
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
 
-            <form action="<?=base_url() ?>jobcard/add_jobcard_act" method="post" id="addform">   <!--  Main Form -->
-                    <!-- Smart Wizard -->
+            <form action="<?=base_url() ?>jobcard/add_jobcard_act" method="post" id="addform">  
                     <div id="wizard" class="form_wizard wizard_horizontal">
                       <ul class="wizard_steps" style="display: none">
                         <li>
@@ -97,9 +81,8 @@
                       </ul>
                      
                       <div id="step-1">
-                        <h2 class="StepTitle"></h2>
-                      <form class="form-horizontal form-label-left" method="post" action="<?= base_url() ?>/add_jobcard_act" id="form1">  <!--  -->
-                        <div class="form-group">
+                        <div style="padding-bottom:20px;">
+                         <div class="form-group">
                         <div class="col-md-3 col-sm-3 col-xs-6">
                           <label class="control-label" for="first-name">Refernce Number</label>
                           <input type="text" id="first-name" readonly name="ref_no" class="form-control col-md-7 col-xs-12" value="INVJ-<?=$last_id ?>">
@@ -130,8 +113,9 @@
                            </select>
                         </div>
                         </div>
+                        </div>
 
-                      <span style="background:#CCC; border:1px solid #999; width:100%; display:inline-block; margin-top:50px;" id="QRGrid">
+                      <span class="pda-form-sec" id="QRGrid">
                       <div class="form-group">
                         <div class="col-md-6 col-sm-6 col-xs-12">
                           <label class="control-label" style="color:#000;" for="first-name">Vehicle Number <span class="required">*</span></label>
@@ -145,7 +129,7 @@
                       </div>
                       </span>
 
-                      <span style="background:#CCC; border:1px solid #999; width:100%; display:inline-block; margin-top:50px;" id="QRGrid">
+                      <span class="pda-form-sec" id="QRGrid">
                       <div class="form-group">
                         <div class="col-md-6 col-sm-6 col-xs-12">
                           <label class="control-label" style="color:#000;" for="first-name">Model<span class="required">*</span></label>
@@ -158,7 +142,7 @@
                       </div>
                     </span>
 
-                     <span style="background:#CCC; border:1px solid #999; width:100%; display:inline-block; margin-top:50px;" id="QRGrid">
+                     <span class="pda-form-sec" id="QRGrid">
                       <div class="form-group">
                         <div class="col-md-6 col-sm-6 col-xs-12">
                           <label class="control-label" style="color:#000;" for="first-name">Tel/Mob<span class="required">*</span></label>
@@ -170,19 +154,13 @@
                         </div>
                       </div>
                     </span>
-                   <br/>
-
-                        <!-- </form> -->
-
                       </div>
 
-                      <div id="step-2">
-                        <h2 class="StepTitle"></h2>
-                
+            <div id="step-2">
               <h4>Flushing Oil</h4>
-              <span style="background:#CCC; border:1px solid #999; width:100%; display:inline-block; margin-top:20px;" id="QRGrid1">
+              <span class="pda-form-sec" id="QRGrid1">
                       <div class="form-group">
-                        <div class="col-md-4 col-sm-3 col-xs-11">
+                        <div class="col-md-4 col-sm-3 col-xs-12">
                           <label class="control-label" style="color:#000;" for="first-name">Service type <span class="required">*</span></label>
                           <select required id="flush_oil" name="flush_oil" class="select2_group form-control col-md-7 col-xs-12" onchange="$(this).change_flushing(this.value)" >
                               <option>Select</option>
@@ -194,7 +172,7 @@
                          </div>
                          <!--  <div class="col-md-1 col-sm-1 col-xs-12">
                          </div> -->
-                        <div class="col-md-4 col-sm-3 col-xs-11">
+                        <div class="col-md-4 col-sm-3 col-xs-12">
                           <label class="control-label" style="color:#000;" for="first-name">Quatity <span class="required">*</span></label>
                           <input type="number" id="f_quantity" required name="f_quantity" class="form-control col-md-7 col-xs-12" value="" onchange="$(this).change_amount(this.value,'uf_price','f_price');">
                         </div>
@@ -202,12 +180,11 @@
                          </div> -->
                         <input type="hidden" id="uf_price" required name="uf_price" class="form-control col-md-7 col-xs-12" value="0"> 
 
-                        <div class="col-md-4 col-sm-3 col-xs-11">
+                        <div class="col-md-4 col-sm-3 col-xs-12">
                           <label class="control-label" style="color:#000;" for="first-name">Price <span class="required">*</span></label>
                           <input type="number" id="f_price" required name="f_price" class="form-control col-md-7 col-xs-12" value="0" step="0.01">
                         </div> 
-                        <div class="col-md-1 col-sm-1 col-xs-11">
-                        </div>                       
+                                             
                       </div>
                   </span>
             <?php
@@ -215,7 +192,7 @@
              foreach ($servicetype as $serv) {   ?>
                 <h4><?=$serv->name ?></h4>
                 <input type="hidden" name="type[]" value="<?=$serv->id ?>">
-                  <span style="background:#CCC; border:1px solid #999; width:100%; display:inline-block; margin-top:20px;" id="QRGrid2">
+                  <span class="pda-form-sec" id="QRGrid2">
                       <div class="form-group">
                         <div class="col-md-3 col-sm-3 col-xs-12">
                           <label class="control-label" style="color:#000;" for="first-name">Select Company<span class="required">*</span></label>
@@ -254,7 +231,7 @@
                 <?php $i++; } ?>
 
                    <h4>CarWash</h4>
-                  <span style="background:#CCC; border:1px solid #999; width:100%; display:inline-block; margin-top:20px;" id="QRGrid6">
+                  <span class="pda-form-sec" id="QRGrid6">
                       <div class="form-group">
                         <div class="col-md-3 col-sm-3 col-xs-12">
                           <label class="control-label" style="color:#000;" for="first-name">Vehicle Tpye<span class="required">*</span></label>
@@ -291,16 +268,12 @@
                         </div>                        
                       </div>
                   </span>
-                    <!-- ending -->
-                    
-                   <!--  </div>
-                  </div>  -->
-                      </div>
+                   
+                </div>
 
                        <div id="step-3">
                         <h2 class="StepTitle">Step 3 Content</h2>
-                    <!--   <form class="form-horizontal form-label-left"> -->
-     <!-- testing -->
+                    
               <div class="row">
          <div class="form-group">
             <div class="searchable-container">    
@@ -310,12 +283,12 @@
                 foreach($servicejob as $key => $value ) {
                    $job = $value;
                  ?>
-                 <div class="items col-xs-12 col-sm-5 col-md-4 col-lg-4">
+                 <div class="items col-xs-12 col-sm-4 col-md-2 col-lg-2">
                      <div class="info-block block-info clearfix">
                         <div class="square-box pull-left">
-                           <span class="glyphicon glyphicon-tags glyphicon-lg"></span>
+                           <span class="glyphicon glyphicon-tags glyphicon-lg" style="transform: rotate(180deg);"></span>
                         </div>
-                        <div data-toggle="buttons"  class="btn-group  bizmoduleselect" onclick="mat_modal(<?=$key ?>)">
+                        <div data-toggle="buttons" class="btn-group bizmoduleselect" onclick="mat_modal(<?=$key ?>)" style="margin-bottom:20px;">
                             <label class="btn btn-default">
                           <div class="bizcontent">
                       <input type="checkbox" id="service<?=$key ?>" name="service[<?=$key ?>]" autocomplete="off" value="<?=$job->id ?>" data-toggle="modal"  >
@@ -337,26 +310,27 @@
           <button type="button" class="close" data-dismiss="modal">&times;</button>
           <h4 class="modal-title">Service Price:-</h4>
         </div>
-              <div class="modal-body" style="height: 71px;">
+              <div class="modal-body">
                  <input type="hidden" id="us_price<?=$key ?>" required name="us_price[<?=$key ?>]" class="form-control col-md-7 col-xs-12" value="<?=$job->price ?>">
-                       <div class="col-md-12 col-sm-12 col-xs-12">
+                       <div class="form-group">
                           <label class="control-label" style="color:#000;" for="first-name">Name<span class="required">*</span></label>
                           <input type="text" id="s_desc<?=$key ?>" required name="s_desc[<?=$key ?>]" class="form-control col-md-7 col-xs-12" value="<?=$job->name ?>">
-                       </div>
-                       <div class="col-md-12 col-sm-12 col-xs-12">
+                          </div>
+                       <div class="clearfix"></div>
+                       <div class="form-group">
                           <label class="control-label" style="color:#000;" for="first-name">Quantity<span class="required">*</span></label>
                           <input type="number" id="s_quantity<?=$key ?>" required name="s_quantity[<?=$key ?>]" class="form-control col-md-7 col-xs-12" value="1" min="1" onchange="$(this).change_amount(this.value,'us_price<?=$key ?>','s_price<?=$key ?>');">
                         </div>
-                        <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="clearfix"></div>
+                        <div class="form-group">
                           <label class="control-label" style="color:#000;" for="first-name">Price <span class="required">*</span> </label>
                           <input type="number" id="s_price<?=$key ?>" required name="s_price[<?=$key ?>]" class="form-control col-md-7 col-xs-12" value="<?=$job->price ?>" min="0" step="0.01">
                           <input type="hidden" id="us_price<?=$key ?>" required name="s_price[<?=$key ?>]" class="form-control col-md-7 col-xs-12" value="<?=$job->price ?>" min="0" step="0.01">
                         </div>
-                        <div class="col-md-3 col-sm-3 col-xs-12">
-                        </div>
-                        <br>
                </div>
-        <div class="modal-footer" style="margin-top: 88px;">
+            <div class="clearfix"></div>
+            <br>
+        <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         </div>
       </div>
@@ -374,29 +348,13 @@
     </div>
             </div>
           </div>
-                       <!--  </form> -->
                       </div>
 
                       <div id="step-4">
                         <h2 class="StepTitle">Step 4 Content</h2>
-                    <!--   <form class="form-horizontal form-label-left"> -->
                        <div class="row">
-                       <!--  <div class="form-group gap">
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                         <label class="control-label" for="first-name">Authorized By</label>
-                         
-                          <input type="text" class="form-control" readonly id="auth_by" placeholder="" value="admin" name="auth_by">
-                        </div>
-                      
-                       
-                        
-                        </div>
-                        <br> <br /> -->
-
-                       
-
-                      <div class="form-group gap">
-                        <div class="col-md-6 col-sm-6 col-xs-12">
+                         <div class="form-group gap">
                          <label class="control-label" for="first-name">Payment Type</label>
                          <select class="select2_group form-control" name="pay_type" id="pay_type" onchange="$(this).change_payment(this.value);" required >
                            <option value="">Select</option>
@@ -493,8 +451,9 @@
 
 <!-- form -->
 
-                     <div class="form-group gap">
+                     
                         <div class="col-md-6 col-sm-6 col-xs-12">
+                        <div class="form-group">
                          <label class="control-label" for="first-name">Offer</label>
                          <select class="select2_group form-control" name="offer" id="offer"  required >
                            <option value="No">No</option>
@@ -503,73 +462,85 @@
                         </div>
                      </div>
 
-                    <div class="form-group gap" >
+                    
                       <div class="col-md-6 col-sm-6 col-xs-12">
+                      <div class="form-group">
                         <label class="control-label" for="first-name">Discount</label>
                         <input type="text" class="form-control"  id="discount" placeholder="" value="" name="discount">
                       </div>
+                      </div>
                       <div class="col-md-6 col-sm-6 col-xs-12">
+                      <div class="form-group">
                       <label class="control-label" for="first-name">Discount Type</label>
                         <select class="form-control" name="disc_type" id="disc_type">
-                            <option value="normal"> Normal </option>
+                            <option value="normal">Normal</option>
                             <option value="percentage">Percentage</option>
                          </select>
                       </div>
                       </div>
 
-											<div class="form-group gap" >
+											
                       <div class="col-md-6 col-sm-6 col-xs-12">
+                      <div class="form-group">
                       <label class="control-label" for="first-name">Discount Name</label>
                       <input type="text" class="form-control"  id="discount_name" placeholder="" value="" name="discount_name">
                       </div>
+                      </div>
+                      
                       <div class="col-md-6 col-sm-6 col-xs-12">
+                      <div class="form-group">
                       <label class="control-label" for="first-name">Discount Number</label>
-											<input type="text" class="form-control"  id="discount_no" placeholder="" value="" name="discount_no">
+					   <input type="text" class="form-control"  id="discount_no" placeholder="" value="" name="discount_no">
                       </div>
                       </div>
 
 
-                      <div class="form-group gap" >
+                      
                       <div class="col-md-6 col-sm-6 col-xs-12">
+                      <div class="form-group">
                         <label class="control-label" for="first-name">FOC Name</label>
                           <input type="text" class="form-control"  id="foc_name" placeholder="" value="" name="foc_name">
                       </div>
+                      </div>
                       <div class="col-md-6 col-sm-6 col-xs-12">
+                      <div class="form-group">
                         <label class="control-label" for="first-name">FOC Amount</label>
                           <input type="text" class="form-control"  id="foc_amount" placeholder="" value="" name="foc_amount">
                       </div>
                       </div>
 
-                      <div class="form-group gap">
+                      
                         <div class="col-md-6 col-sm-6 col-xs-12">
+                        <div class="form-group">
                          <label class="control-label" >Assigned To </label>
                           <select class="form-control" name="assigned_to" id="assigned_to">
                             <option value="">Select</option>
-														<?php   foreach ($worker as $key => $value) { ?>
-													  <option value="<?=$value->id  ?>"> <?=$value->name ?> </option>
-													<?php } ?>
+							  <?php   foreach ($worker as $key => $value) { ?>
+							   <option value="<?=$value->id  ?>"> <?=$value->name ?> </option>
+							  <?php } ?>
                           </select>
                        </div>
+                       </div>
                        <div class="col-md-6 col-sm-6 col-xs-12">
+                       <div class="form-group">
                         <label class="control-label" for="first-name">Recieved By</label>
                           <input type="text" class="form-control"  id="received_by" placeholder="" value="<?=$this->session->name  ?>" name="received_by">
-                          <input type="text" class="form-control"  id="tx_desc" placeholder="" value="<?=$this->session->tx_desc  ?>" name="tx_desc">
-													<input type="hidden" id="user_id" required name="user_id" class="form-control col-md-7 col-xs-12" value="<?=$this->session->id   ?>">
-													<input type="hidden" id="shift_id" required name="shift_id" class="form-control col-md-7 col-xs-12" value="<?=$this->session->shift_id   ?>">
+                          <input type="hidden" class="form-control"  id="tx_desc" placeholder="" value="<?=$this->session->tx_desc  ?>" name="tx_desc">
+					      <input type="hidden" id="user_id" required name="user_id" class="form-control col-md-7 col-xs-12" value="<?=$this->session->id   ?>">
+						  <input type="hidden" id="shift_id" required name="shift_id" class="form-control col-md-7 col-xs-12" value="<?=$this->session->shift_id   ?>">
                         </div>
                       </div>
-                      <div class="form-group">
+                      
                        <div class="col-md-6 col-sm-6 col-xs-12">
+                        <div class="form-group">
                          <label class="control-label" for="DateIn"> Invoice Ref No. </label>
                          <input type="text" class="form-control"  id="invoice_ref" placeholder="Invoice Ref No." value="" name="invoice_ref">
                        </div>
                       </div>
 
                      </div>
-                   <br> <br />
-                     
-
-                         </form> 
+                  
+                        
                       </div>
 
                      
@@ -577,16 +548,7 @@
                         <!-- End Main Form -->
 
                     </div>
-                    <!-- End SmartWizard Content -->
-
-                   <!--   <div class="ln_solid"></div>
-                      <div class="form-group">
-                        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-
-                          <button type="button" class="btn btn-primary" onclick="javascript:window.location.href='customer.asp'">Cancel</button>
-                          <button type="submit" class="btn btn-success">Save</button>
-                        </div>
-                      </div>  -->
+                   </form>
                 
                   </div>
                 </div>

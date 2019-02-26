@@ -63,7 +63,7 @@
                  <?php if(!empty($_SESSION['image'])) { ?>
            <img src="<?=base_url() ?>assets/images/employee/<?=$_SESSION['image']?>" alt="..." class="img-circle profile_img">
                 <?php } else { ?>  
-                <img src="<?=base_url() ?>assets/images/img.jpg" alt="..." class="img-circle profile_img">
+                <img src="<?=base_url() ?>assets/images/img.jpg" alt="" class="img-circle profile_img">
               <?php } ?>
               </div>
               <div class="profile_info">

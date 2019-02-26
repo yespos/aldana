@@ -52,7 +52,7 @@
                </select>
               </div> -->
               <div style="margin-top: 30px;">
-                <input type="submit" class="btn btn-default submit" name="submit" value="Log in">
+                <input type="submit" class="btn btn-primary submit" name="submit" value="Log in">
                <!-- <a class="btn btn-default submit" href="index.html">Log in</a> -->
                 <a class="reset_pass" href="<?= base_url('login/recovery')?>">Lost your password? </a>
               </div>
@@ -89,7 +89,7 @@
                 <input type="password" class="form-control" placeholder="Password" required="" />
               </div>
               <div>
-                <a class="btn btn-default submit" href="index.html">Submit</a>
+                <a class="btn btn-info submit" href="index.html">Submit</a>
               </div>
 
               <div class="clearfix"></div>
@@ -103,7 +103,7 @@
                 <br />
 
                 <div>
-                   <h1><i class="fa fa-paw"></i> YesPos!</h1>
+                  <h1><i class="fa fa-paw"></i> Aldana Services!</h1>
                   <p>©2018 All Rights Reserved. Jumeirah Life Style</p>
                 </div>
               </div>

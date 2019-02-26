@@ -3,11 +3,10 @@
           <div class="">
             <div class="row" id="PagePosition">
               <div class="col-md-12 col-sm-12 col-xs-12">
-        <div class="x_panel">
+              <div class="x_panel">
                   <button type="button" class="btn btn-success" onclick="javascript:window.location.href='<?=base_url('ecowash') ?>'"><i class="fa fa-plus"></i>New Ecowash</button>
               </div> 
               </div>
-          
 <!--  in -->
                        
 <!--  -->
@@ -16,46 +15,95 @@
                 <div class="x_panel">
                   <!--Alerts Start-->
                   <div class="x_content bs-example-popovers">
-                   <form action="<?=base_url()?>jobcard/daily_report" method="post">
-                      <div class="col-md-4 col-sm-3 col-xs-12">
+                  <form action="<?=base_url()?>jobcard/report" method="post"> 
+                      <div class="col-md-2 col-sm-3 col-xs-12">
                           <label class="control-label" style="color:#000;" for="first-name">From </label>
                           <input id="from" name="from" class="date-picker form-control col-md-7 col-xs-12" value="<?php if(isset($post['from'])){ echo $post['from']; }  ?>"  type="text" readonly="readonly">
                         </div> 
-                        <div class="col-md-4 col-sm-3 col-xs-12">
+                        <div class="col-md-2 col-sm-3 col-xs-12">
                           <label class="control-label" style="color:#000;" for="first-name">To </label>
                           <input id="to" name="to" class="date-picker form-control col-md-7 col-xs-12" value="<?php if(isset($post['to'])){ echo $post['to']; }  ?>"  type="text" readonly="readonly">
                         </div>
-                        
-                        <div class="col-md-3 col-sm-3 col-xs-12">
+                        <div class="col-md-2 col-sm-3 col-xs-12">
                           <label class="control-label" style="color:#000;" for="first-name">Payment Type </label>
-                          <select class="select2_group form-control" name="pay_type" id="pay_type"   >
-                           <option value=""> Select</option>
+                          <select class="select2_group form-control" name="pay_type" id="pay_type">
+                           <option value="">Select</option>
                            <?php 
-                              if($paytype){
-                                foreach ($paytype as $value) {
-                                if(isset($post['pay_type']))
+                            if($paytype){
+                            foreach ($paytype as $value) {
+                               if(isset($post['pay_type']))
                                 {       
                                   $selected = $post['pay_type']== $value->id?"selected":"";
                                 }
                                 else
-                                { $selected =""; }
+                                { $selected =""; } 
                                  ?>
-                                <option value="<?=$value->id?>" <?=$selected ?>><?=$value->name?> </option>
-                              <?php } } ?>
+                                <option value="<?=$value->id?>" <?=$selected ?>><?=$value->name ?> </option>
+                           <?php } } ?>
                            </select>
-                        </div>
-                        <div class="col-md-1 col-sm-3 col-xs-12">
+                          </div>
+                          <div class="col-md-1 col-sm-3 col-xs-12">
+                          <label class="control-label" style="color:#000;" for="first-name">Shift </label>
+                          <select class="select2_group form-control" name="shift" id="shift">
+                           <option value="">Select</option>
+                           <?php foreach ($shifts as $key => $value) {
+                             if(isset($post['shift']))
+                                {       
+                                  $selected = $post['shift']== $value->id?"selected":"";
+                                }
+                                else
+                                { $selected =""; }
+                            ?>
+
+							 <option value="<?=$value->id ?>" <?=$selected ?> > <?=$value->name ?> </option>      
+							 <?php  } ?>
+                           </select>
+                          </div>
+                          <div class="col-md-2 col-sm-3 col-xs-12">
+                          <label class="control-label" style="color:#000;" for="first-name">Tax Inc Desc. </label>
+                          <select class="select2_group form-control" name="tx_desc" id="tx_desc">
+                           <option value="">Select</option>
+                           <?php foreach ($user as $key => $value) {
+                            if(!empty($value->tx_desc)){
+                           if(isset($post['tx_desc']))
+                                {       
+                                  $selected = $post['tx_desc']== $value->tx_desc?"selected":"";
+                                }
+                                else
+                                { $selected =""; } 
+                            ?>
+                           <option value="<?=$value->tx_desc ?>" <?=$selected ?>> <?=$value->tx_desc ?> </option>
+                           <?php  } } ?>
+                           </select>
+                          </div>
+                        
+                        <div class="col-md-2 col-sm-3 col-xs-12">
+                          <label class="control-label" style="color:#000;" for="first-name">Assigned To </label>
+                          <select class="select2_group form-control" name="assigned_to" id="assigned_to">
+                           <option value="">Select</option>
+                           <?php foreach ($worker as $key => $value) { 
+                            if(isset($where['assigned_to']))
+                                {       
+                                  $selected = $where['assigned_to']== $value->id?"selected":"";
+                                }
+                                else
+                                { $selected =""; } 
+                            ?>
+							<option value="<?=$value->id ?>" <?=$selected ?>> <?=$value->name ?> </option>      
+													 <?php  } ?>
+                           </select>
+                          </div>
+                           <div class="col-md-1 col-sm-2 col-xs-12">
                           <button type="button" id="refresh" class="btn btn-success"><i class="fa fa-refresh" aria-hidden="true"></i> All Reports</button> 
                           <button type="submit" class="btn btn-primary mb-2">Search</button>
                         </div>
-                   </form>
                   </div>
                   
                   <div class="clearfix"></div>
                   <hr>
                   <!--Alerts End-->
                   <div class="x_title">
-                    <h2>Job Car <small>Report</small></h2>
+                    <h2>Job Card <small>Report</small></h2>
                     <ul class="nav navbar-right panel_toolbox">
                       <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
                     </ul>
@@ -70,12 +118,15 @@
                           <th>Invoice No</th>
                           <th>Invoice Ref.No</th>
                           <th>Car Plate</th>
-                          <th>Customer Name</th>
                           <th>Tax Inv Desc.</th>
+                          <th>Customer Name</th>
+                          <th>Shift</th>
+                          <!-- <th>Service</th> -->
                           <th>Payment Type</th>
                           <th>Amount</th>
                           <th>Tax</th>
-                         <!--  <th>F.O.C</th> -->
+                          <th>F.O.C</th>
+                          <th>Disc.</th>
                           <th>Total</th>
                           <th>Date</th>
                         </tr>
@@ -83,76 +134,64 @@
                       <tbody>
                         <?php  
                            $i= 1;
-                           $j_total = 0;
-                           $j_amount =0;
-                           $j_vat = 0;
-                           $j_foc = 0;
-                           $e_total = 0;
-                           $e_amount =0;
-                           $e_vat = 0;
-                           $e_foc = 0;
+                           $total = 0;
+                           $amount =0;
+                           $vat = 0;
+                           $foc = 0;
+                           $disc =0;
 
-                        foreach ($job_lists as $list) {
+                        foreach ($lists as $list) {
                           /* $category = category_name($list->vehicleType);*/
                           $services = service_name($list->id);
                             foreach ($services as $serv) {
                                $service_name[$i][] = $serv->service; 
                                }
                            $service = implode("/",$service_name[$i]); 
-                           $j_total = $j_total + $list->total;
-                           $j_vat = $j_vat + $list->vat;
-                           $j_foc = $j_foc + $list->foc;
-                           $j_amount = $j_amount + $list->amount; 
+                           $total = $total + $list->total;
+                           $vat = $vat + $list->vat;
+                           $foc = $foc + $list->foc;
+                           $disc = $disc + $list->discount;
+                           $amount = $amount + $list->amount; 
                         ?>
                         <tr>
                           <td><?=$i ?></td>
                           <td><?=$list->ref_no ?></td>
                           <td><?=$list->invoice_ref ?></td>
                           <td><?=$list->car_plate ?></td>
-                          <td><?=$list->customer_name ?></td>
+                        <!--   <td><?=username($list->user_id) ?></td> -->
                           <td><?=$list->tx_desc ?></td>
+                          <td><?=$list->customer_name ?></td>
+                          <td><?=shift_name($list->shift_id) ?></td>
+                         <!--  <td><?=$service ?></td> -->
                           <td><?=paymentModeName($list->pay_type) ?></td>
                           <td><?=$list->amount ?></td>
                           <td><?=$list->vat ?></td>
-                         <!--  <td><?=$list->foc ?></td> -->
+                          <td><?=$list->foc ?></td>
+                          <td><?=$list->discount ?></td>
                           <td><?=$list->total ?></td>
-                          <td><?=$list->date ?> </td>
+                          <td><?=$list->date  ?><?php // date('m/d/Y H:i:s',$list->created_at); ?></td>
                         </tr>
                        <?php  $i++; } ?>
-             <?php
-                       foreach ($eco_lists as $list) {
-                           $category = category_name($list->vehicleType);
-                           $e_total = $e_total + $list->total;
-                           $e_vat = $e_vat + $list->vat;
-                           $e_amount = $e_amount + $list->amount; 
-                        ?>
                         <tr>
-                          <td><?=$i ?></td>
-                          <td><?=$list->ref_no ?></td>
-                          <td><?=$list->car_plate ?></td>
-                          <td><?=$list->customer_name ?></td>
-                          <td><?=$category ?></td>
-                          <td><?=$list->pay_type ?></td>
-                          <td><?=$list->amount ?></td>
-                          <td><?=$list->vat ?></td>
-                          <td><?=$list->total ?></td>
-                          <td><?=date('m/d/Y H:i:s',$list->created_at); ?></td>
-                        </tr>
-                       <?php  $i++; } ?>
-                        <tr style="background-color:#748392; color:#ffffff">
                           <td></td>
                           <td></td>
                           <td></td>
                           <td></td>
-                          <td> <b> </td>
                           <td></td>
-                          <td><b>Total Report</b></td>
-                          <td><b><?=$j_amount + $e_amount ?> (Amount)</b></td>
-                          <td><b><?=$j_vat + $e_vat ?> (Vat)</b></td>
-                          <td><b> <?=$j_foc ?> (F.O.C)</b></td> 
-                          <td><b><?=$j_total + $e_total ?> (Total)</b> </td>
+                          <td></td>
+                          <td></td>
+                         <!--  <td> <b> Total Report</td> -->
+                          <td><b>(Amount + Vat) = Total </b></td>
+                          <td><b><?=$amount ?></b></td>
+                          <td><b> <?=$vat ?></b></td>
+                          <td><b> <?=$foc ?></b></td>
+                          <td><b> <?=$disc ?></b></td>
+                          <td> <b><?=$total ?> </b> </td>
+                          <td></td>
                           <td></td>                          
                         </tr>
+
+                      
                         
                       </tbody>
                     </table>
@@ -188,7 +227,7 @@
     </script>
 <script type="text/javascript">
   $('#refresh').click(function() {
-    window.location.href = "<?=base_url() ?>jobcard/daily_report/all";
+    window.location.href = "<?=base_url() ?>jobcard/report";
 });
 </script>
     

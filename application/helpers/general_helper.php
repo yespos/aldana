@@ -109,17 +109,17 @@ function multipayment($id,$payid =null)
     return $CI->db->get('multipayment')->result();
 }
 
-function paymentstatus($id)
+/*function paymentstatus($id)
 {  
     $CI = &get_instance();
     $CI->db->where('jobcard_id',$id);
     $data = $CI->db->get('multipayment')->result();
     $i=0;
     foreach ($data as $key => $value) {
-      if()
+      if($value->)
       $payment['paytype'][] = 
     }
-}
+}*/
 
 function getShift()
 {

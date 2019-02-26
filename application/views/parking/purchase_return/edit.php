@@ -16,7 +16,7 @@
               <div class="row">
                 <form role="form" id="form" method="post" action="<?php echo base_url('purchase_return/editPurchaseReturn');?>">
                 <?php foreach($data as $row){?>
-                <div class="col-sm-6">
+                <div class="col-sm-6 col-xs-12">
                   <div class="form-group">
                     <label for="date"><?php echo $this->lang->line('purchase_date'); ?><span class="validation-color">*</span></label>
                     <input type="text" class="form-control datepicker" id="date" name="date" value="<?php echo $row->date;?>">
@@ -30,7 +30,7 @@
                     <span class="validation-color" id="err_reference_no"><?php echo form_error('reference_no'); ?></span>
                   </div>
                 </div>
-                <div class="col-sm-6">
+                <div class="col-sm-6 col-xs-12">
                   <div class="form-group">
                     <label for="warehouse"><?php echo $this->lang->line('purchase_select_warehouse'); ?><span class="validation-color">*</span></label>
                     <select class="form-control select2_group select2" id="warehouse" name="warehouse" style="width: 100%;">
