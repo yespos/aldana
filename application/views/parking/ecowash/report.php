@@ -14,62 +14,65 @@
                 <div class="x_panel">
                   <!--Alerts Start-->
                   <div class="x_content bs-example-popovers">
-                    <!-- Search Dept -->
-                     <table  class="table  dt-responsive nowrap" cellspacing="0" width="100%">
-                      <thead>
-                        <tr>
-                          <th>From</th>
-                          <th>To</th>
-                          <th>Sales Category</th>
-                          <th>Payment Type</th>
-													<th>Shift</th>
-													<th>Assigned To</th>
-                          <th><span > </span>
-                          <button type="button" id="refresh" class="btn btn-success"><i class="fa fa-refresh" aria-hidden="true"></i> All Reports</button> 
-                          </th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <form action="<?=base_url()?>ecowash/report" class="form" method="post">
-                          <td><input id="from" name="from" class="date-picker form-control col-md-7 col-xs-12" value=""  type="text"></td>
-                          <td><input id="to" name="to" class="date-picker form-control col-md-7 col-xs-12" value=""  type="text"></td>
-                          <td> <select class="select2_group form-control col-md-5 col-xs-12" name="vehicleType" id="vehicleType"   >
+                   <form action="<?=base_url()?>ecowash/report" class="form" method="post">
+                      <div class="col-md-2 col-sm-3 col-xs-12">
+                          <label class="control-label" style="color:#000;" for="first-name">From </label>
+                          <input id="from" name="from" class="date-picker form-control col-md-12 col-xs-12" value=""  type="text">
+                        </div> 
+                        <div class="col-md-2 col-sm-3 col-xs-12">
+                          <label class="control-label" style="color:#000;" for="first-name">To </label>
+                          <input id="to" name="to" class="date-picker form-control col-md-7 col-xs-12" value=""  type="text">
+                        </div>
+                        <div class="col-md-2 col-sm-3 col-xs-12">
+                          <label class="control-label" style="color:#000;" for="first-name">Sales Category </label>
+                          <select class="select2_group form-control col-md-5 col-xs-12" name="vehicleType" id="vehicleType"   >
                            <option value=""> Select </option>
                            <?php foreach($cartype as $car) {
                               ?> 
                            <option value="<?=$car->id ?>"> <?=$car->carType  ?> </option>
                          <?php } ?>
                            ?>
-                           </select></td>  
-
-                           <td><select class="select2_group form-control" name="pay_type" id="pay_type"   >
+                           </select>
+                        </div>
+                        <div class="col-md-2 col-sm-3 col-xs-12">
+                          <label class="control-label" style="color:#000;" for="first-name">Payment Type </label>
+                          <select class="select2_group form-control" name="pay_type" id="pay_type"   >
                            <option value=""> Select</option>
                            <?php 
                               if($paytype){
                                 foreach ($paytype as $value) { ?>
                                 <option value="<?=$value->id?>" <?=(isset($post['payment_method']) && $post['payment_method'] == $value->id)?'selected':''?>><?=$value->name?> </option>
                               <?php } } ?>
-                           </select></td>
-													 <td><select class="select2_group form-control" name="shift" id="shift">
+                           </select>
+                        </div>
+                        <div class="col-md-1 col-sm-3 col-xs-12">
+                          <label class="control-label" style="color:#000;" for="first-name">Shift </label>
+                          <select class="select2_group form-control" name="shift" id="shift">
                            <option value="">Select</option>
                            <?php foreach ($shifts as $key => $value) { ?>
 													  <option value="<?=$value->id ?>"> <?=$value->name ?> </option>      
 													 <?php  } ?>
-                           </select></td>
-													 <td><select class="select2_group form-control" name="assigned_to" id="assigned_to">
+                           </select>
+                        </div>
+                        <div class="col-md-2 col-sm-3 col-xs-12">
+                          <label class="control-label" style="color:#000;" for="first-name">Assigned To </label>
+                          <select class="select2_group form-control" name="assigned_to" id="assigned_to">
                            <option value="">Select</option>
                            <?php foreach ($worker as $key => $value) { ?>
 													  <option value="<?=$value->id ?>"> <?=$value->name ?> </option>      
 													 <?php  } ?>
-                           </select></td>
-                          <td><button type="submit" class="btn btn-primary mb-2">Search</button></td>
-                          </form>                   
-                        </tr>
-                      </tbody>
-                    </table> 
-                    <!-- End -->
+                           </select>
+                        </div>
+                        <div class="col-md-1 col-sm-2 col-xs-12">
+                          <button type="button" id="refresh" class="btn btn-success"><i class="fa fa-refresh" aria-hidden="true"></i> All Reports</button>
+                          <button type="submit" class="btn btn-primary mb-2">Search</button>
+                        </div>
+                   </form>
+                 
                   </div>
+                  <div class="clearfix"></div>
+                  <hr>
+                  
                   <!--Alerts End-->
                   <div class="x_title">
                     <h2>Eco Wash <small>Information</small></h2>
@@ -80,7 +83,8 @@
                   </div>
 
                   <div class="x_content">
-          <table id="datatable-buttons" class="table table-striped table-bordered " cellspacing="0" width="100%">
+                  <div class="table-responsive">
+                   <table id="datatable-buttons" class="table table-striped table-bordered " cellspacing="0" width="100%">
                       <thead>
                         <tr>
                           <th>Sr#</th>
@@ -89,7 +93,7 @@
                           <th>Car Plate</th>
                           <th>Customer Name</th>
                           <th>Sales Category</th>
-													<th>Shift</th>
+						  <th>Shift</th>
                           <th>Payment Type</th>
                           <th>Amount</th>
                           <th>Tax</th>
@@ -117,7 +121,7 @@
                           <td><?=$list->car_plate ?></td>
                           <td><?=$list->customer_name ?></td>
                           <td><?=$category ?></td>
-													<td><?=shift_name($list->shift_id) ?></td>
+						  <td><?=shift_name($list->shift_id) ?></td>
                           <td><?=paymentModeName($list->pay_type) ?></td>
                           <td><?=$list->amount ?></td>
                           <td><?=$list->vat ?></td>
@@ -130,13 +134,13 @@
                           <td></td>
                           <td></td>
                           <td></td>
-													<td></td>
+						  <td></td>
                           <td></td>
-                          <td> <b> Total Report</td>
-                          <td><b>(Amount + Vat) = Total </b></td>
+                          <td><b>Total Report</b></td>
+                          <td><b>(Amount + Vat) = Total</b></td>
                           <td><b><?=$amount ?></b></td>
-                          <td><b> <?=$vat ?></b></td>
-                          <td> <b><?=$total ?> </b> </td>
+                          <td><b><?=$vat ?></b></td>
+                          <td><b><?=$total ?></b> </td>
                           <td></td>
                           <td></td>                          
                         </tr>
@@ -145,6 +149,7 @@
                         
                       </tbody>
                     </table>
+                    </div>
                   </div>
                 </div>
               </div>

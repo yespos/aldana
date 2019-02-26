@@ -35,7 +35,7 @@
                         </div>
                         </div>
 
-                      <span style="background:#CCC; border:1px solid #999; width:100%; display:inline-block; margin-top:50px;" id="QRGrid">
+                      <span class="pda-form-sec" id="QRGrid">
                       <div class="form-group">
                         <div class="col-md-6 col-sm-6 col-xs-12">
                           <label class="control-label" style="color:#000;" for="first-name">Car Plate <span class="required">*</span></label>
@@ -48,7 +48,7 @@
                       </div>
                       </span>
 
-											<span style="background:#CCC; border:1px solid #999; width:100%; display:inline-block; margin-top:50px;" id="QRGrid">
+					<span class="pda-form-sec" id="QRGrid">
                       <div class="form-group">
                         <div class="col-md-6 col-sm-6 col-xs-12">
                           <label class="control-label" style="color:#000;" for="first-name">Model<span class="required">*</span></label>
@@ -61,7 +61,7 @@
                       </div>
                     </span>
 
-                    <span style="background:#CCC; border:1px solid #999; width:100%; display:inline-block; margin-top:50px;" id="QRGrid">
+                    <span class="pda-form-sec" id="QRGrid">
                       <div class="form-group">
                         <div class="col-md-6 col-sm-6 col-xs-12">
                           <label class="control-label" style="color:#000;" for="first-name">Tel/Mob<span class="required">*</span></label>
@@ -75,7 +75,7 @@
                     </span>
                    <br/>
 
-                    <span style="background:#CCC; border:1px solid #999; width:100%; display:inline-block; margin-top:50px;" id="QRGrid">
+                    <span class="pda-form-sec" id="QRGrid">
                       <div class="form-group">
                         <div class="col-md-6 col-sm-6 col-xs-12">
                           <label class="control-label" style="color:#000;" for="first-name">Assigned to <span class="required">*</span></label>
@@ -122,7 +122,7 @@
                            </select>
                         </div>
                         <div class="col-md-3 col-sm-3 col-xs-12">
-                          <label class="control-label" style="color:#000;" for="first-name">Amout </label>
+                          <label class="control-label" style="color:#000;" for="first-name">Amount </label>
                           <input type="text" id="amount"  required name="amount" class="form-control col-md-7 col-xs-12" value="" onchange="add_cal()">
                         </div> 
 
@@ -142,7 +142,7 @@
                          <input type="text" class="form-control"  id="invoice_ref" placeholder="" value="" name="invoice_ref">
                        </div>
                       </div>
-											
+						<div class="clearfix"></div>					
                       <div class="ln_solid"></div>
                       <div class="form-group">
                         <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
