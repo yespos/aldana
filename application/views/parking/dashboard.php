@@ -43,7 +43,7 @@
                         <ul class="nav navbar-right panel_toolbox">
                           <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
                         </ul>
-                    <div class="clearfix"></div>
+                     <div class="clearfix"></div>
                     </div>
                   <div class="x_content">
                     <div id="echart_line" style="height:550px;"></div>
@@ -322,7 +322,7 @@
           type: 'value'
         }],
         series: [{
-          name: 'Hourly',
+          name: 'Monthly',
           type: 'line',
           smooth: true,
           itemStyle: {
@@ -334,7 +334,7 @@
           },
           
       
-      data: [940, 310, 440, 90, 0, 0, 0]
+      data: [940, 310, 440, 90, 1000, 400, 0]
         }, {
           name: 'Daily',
           type: 'line',
@@ -348,9 +348,9 @@
           },
       
       
-          data: [0, 0, 0, 0, 0, 0, 0]
+          data: [10, 100, 150, 200, 500, 750, 100]
         }, {
-          name: 'Monthly',
+          name: 'Hourly',
           type: 'line',
           smooth: true,
           itemStyle: {

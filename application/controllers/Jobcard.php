@@ -991,6 +991,27 @@ class Jobcard extends MY_Controller {
         $data['subview'] = $this->load->view('parking/jobcard/list', $data, TRUE);
         $this->load->view('_layout_main', $data); //page load
 		}
+
+    public function cancellist()
+    {
+        /*echo "<pre>";
+        print_r($_SESSION); exit;*/
+        $data = array(); 
+        $table_name = "cartype";
+        $where1['echo_status'] = 'Yes';
+        $data['cartype'] = $this->jobcard_model->show_list($table_name,$where1);
+      
+        $table_name = "jobcard";
+        $where['jobcardtype'] = 2;
+        $where['IsDeleted'] = 0;
+        $where['status'] = 23;
+        if($this->session->id!=1){
+          $where['user_id'] = $this->session->id;
+        }
+        $data['lists'] = $this->jobcard_model->show_jobcardlist($table_name,$where);
+        $data['subview'] = $this->load->view('parking/jobcard/cancellist', $data, TRUE);
+        $this->load->view('_layout_main', $data); //page load
+    }
 		
 		public function view()
     {
