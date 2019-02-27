@@ -197,15 +197,24 @@ $ser_count = count($service);
   <tr>
   	<td colspan="2"><hr /></td>
   </tr>
+  <tr>
+    <td colspan="2"><strong>Pay By</strong></td>
+  </tr>
+  <tr>
+    <td colspan="2"> </td>
+  </tr>
   <?php // if($data->mode_of_payment==8) { 
-    $pay  = multipayment($list->id);
-    echo $this->db->last_query(); 
-    print_r($data);
-    foreach ($pay as $key => $value) {
+    $pay  = paymentstatus($list->id);
+    // echo $this->db->last_query(); 
+   // print_r($pay);
+    $payment = $pay['paytype'];
+    $amount = $pay['amount'];
+    // print_r($payment);
+    foreach ($payment as $key => $value) {
    ?>
   <tr>
-    <td><strong><?=paymentModeName($value->payment_method) ?> : </strong></td>
-    <td><strong><?=$value->amount ?></strong></td>
+    <td><strong><?=paymentModeName($value) ?> : </strong></td>
+    <td><strong><?=$amount[$key] ?></strong></td>
   </tr>
  <?php } // }  ?>
   <tr>

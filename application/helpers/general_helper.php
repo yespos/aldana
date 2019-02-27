@@ -109,17 +109,30 @@ function multipayment($id,$payid =null)
     return $CI->db->get('multipayment')->result();
 }
 
-/*function paymentstatus($id)
+function paymentstatus($id)
 {  
     $CI = &get_instance();
-    $CI->db->where('jobcard_id',$id);
-    $data = $CI->db->get('multipayment')->result();
+    $CI->db->where('particular_id',$id);
+    $data = $CI->db->get('payment')->result();
     $i=0;
-    foreach ($data as $key => $value) {
-      if($value->)
-      $payment['paytype'][] = 
+    foreach($data as $key => $value) {
+      if($value->mode_of_payment == 8){
+         $CI->db->where('payment_id',$value->id);
+         $pay = $CI->db->get('multipayment')->result();
+         foreach($pay as $keys => $values){
+          $payment['paytype'][$i] = $values->payment_method; 
+          $payment['amount'][$i] = $values->amount;
+          $i++;  
+         }
+      }
+      else{
+      $payment['paytype'][$i] = $value->mode_of_payment; 
+      $payment['amount'][$i] = $value->payment_amount;
+      $i++; 
+      }
     }
-}*/
+    return $payment;
+}
 
 function getShift()
 {
