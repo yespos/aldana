@@ -31,8 +31,8 @@
                                                 <?php if(!empty($BranchDetails)) { ?>
                        <img src="<?=base_url() ?>assets/img/branchlogo/<?=$BranchDetails->logo?>" />
                        <p class="text-muted m-l-5">
-                                                    <?=$BranchDetails->BranchName?> <br> 
-                                                    <?=$BranchDetails->Address?>, <?=$BranchDetails->Location?> <br> Dubai - <?=$BranchDetails->PinCode?>
+                                <?=$BranchDetails->BranchName?> <br> 
+                                <?=$BranchDetails->Address?>, <?=$BranchDetails->Location?> <br> Dubai - <?=$BranchDetails->PinCode?>
                                                  </p>
                       <?php } else{  ?>
             <img src="<?=base_url() ?>assets/img/branchlogo/text_logo1_1535812676.png" />

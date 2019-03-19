@@ -3,9 +3,9 @@
           <div class="">
             <div class="row" id="PagePosition">
               <div class="col-md-12 col-sm-12 col-xs-12">
-        <div class="x_panel">
-                  <button type="button" class="btn btn-success" onclick="javascript:window.location.href='<?=base_url('ecowash') ?>'"><i class="fa fa-plus"></i>New Ecowash</button>
-              </div> 
+                <div class="x_panel">
+                  <!-- <button type="button" class="btn btn-success" onclick="javascript:window.location.href='<?=base_url('ecowash') ?>'"><i class="fa fa-plus"></i>New Ecowash</button> -->
+                </div> 
               </div>
           
 <!--  in -->

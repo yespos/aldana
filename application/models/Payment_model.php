@@ -66,7 +66,7 @@ class Payment_model extends MY_Model {
         $this->db->order_by('id','ASC');
         $data = $this->db->get();
         return $data->result();
-    }
+     }
     
     public function paymentReferenceNo(){
         $query = $this->db->select('ReferenceNo')->limit(1)->order_by('id','desc')->get('payment');

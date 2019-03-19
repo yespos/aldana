@@ -54,7 +54,7 @@ class Purchase extends MY_Controller {
                 "total" => $this->input->post('grand_total'),
                 "discount_value" => $this->input->post('total_discount'),
                 "tax_value" => $this->input->post('total_tax'),
-                "DueAmount" => $this->input->post('total'),
+                "DueAmount" => $this->input->post('grand_total'),
                 "PaidAmount" => 0.00,
                 "note" => $this->input->post('note'),
                 "user" => $this->session->userdata('id')

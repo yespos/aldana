@@ -18,6 +18,12 @@ body {
   font-family:Tahoma;
   font-size:11px; 
 }
+
+@media print {
+       .no_print {
+        display: none;
+       }
+     }
 </style>
 </head>
 <?php
@@ -51,8 +57,18 @@ $f_price = $list->f_price;
 $count = count($type);
 $ser_count = count($service);
 ?>
+<?php $_SERVER['HTTP_REFERER']?>
 <body>
 <table style="width:50mm;" border="0">
+  <tr class="no_print">
+  <td><button type="button"  onclick="javascript:window.location.href='<?=base_url() ?>jobcard/lists'" style="background: #26B99A; border: 1px solid #169F85; color:white; height:40px; width:80px;">&laquo; Back</button>
+  <?php if($list->DueAmount>0){  ?> </td> 
+  <td> 
+  <button type="button"  onclick="javascript:window.location.href='<?=base_url()?>jobcard/makepayment/<?=$list->id  ?>'" style="background: #26B99A;
+    border: 1px solid #169F85; color:white; height:40px; width:80px;">Make Payment </button>
+  <?php }   ?>  
+  </td>
+  </tr>
   <!--  <tr>
 	  <td colspan="2" align="center"><strong style="font-size:10px;">VEHICLE SLIP</strong></td>
     </tr> -->
@@ -244,10 +260,7 @@ $ser_count = count($service);
   <tr>
   	<td colspan="2" align="center">Thank You Visit Us Again</td>
   </tr>
-  <tr>
-  <td colspan="2" align="center"><button type="button" id="proceed" onclick="javascript:window.location.href='<?=$_SERVER['HTTP_REFERER']?>'" style="display: none;    background: #26B99A;
-    border: 1px solid #169F85; color:white; height:40px; width:80px;">&laquo; Back</button></td>
-  </tr>
+  
 </table>
 <script type="text/javascript" src="//code.jquery.com/jquery-1.10.2.js"></script>
 <script>

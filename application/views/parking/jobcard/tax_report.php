@@ -4,7 +4,7 @@
             <div class="row" id="PagePosition">
               <div class="col-md-12 col-sm-12 col-xs-12">
         <div class="x_panel">
-                  <button type="button" class="btn btn-success" onclick="javascript:window.location.href='<?=base_url('ecowash') ?>'"><i class="fa fa-plus"></i>New Ecowash</button>
+                  <!-- <button type="button" class="btn btn-success" onclick="javascript:window.location.href='<?=base_url('ecowash') ?>'"><i class="fa fa-plus"></i>New Ecowash</button> -->
               </div> 
               </div>
           
@@ -101,15 +101,16 @@
                            $service = implode("/",$service_name[$i]); 
                            $j_total = $j_total + $list->total;
                            $j_vat = $j_vat + $list->vat;
-                           $j_foc = $j_foc + $list->foc;
-                           $j_amount = $j_amount + $list->amount;
-                           $disc = $disc + $list->discount; 
+                          $j_foc = $j_foc + $list->foc;
+                           // $j_amount = $j_amount + $list->amount;
+                           $disc = $disc + $list->discount;
+                           $j_amount = $j_amount + ($list->amount - $list->foc-$list->discount); 
                         ?>
                         <tr>
                           <td><?=$i ?></td>
                           <td><?=$list->ref_no ?></td>
                           <td><?=$list->date ?></td>
-                          <td><?=$list->amount ?></td>
+                          <td><?=($list->amount - $list->foc-$list->discount)?></td>
                           <td><?=$list->vat ?></td>
                           <!--  <td><?=$list->foc ?></td> -->
                           <td><?=$list->total ?></td>
@@ -142,13 +143,13 @@
                           <td></td>
                           <td></td>
                           
-                          <td><b> </td>
                           <td><b>Total Report</b></td>
-                          <td><b><?=$j_amount + $e_amount ?> (Amount)</b></td>
-                          <td><b><?=$j_vat + $e_vat ?> (Vat)</b></td>
-                          <td><b> <?=$j_foc ?> (F.O.C)</b></td> 
-                          <td><b><?=$disc ?> (Disc.)</b> </td>
-                          <td><b><?=$j_total?> (Total)</b></td>                          
+                          <td><b><?=$j_amount + $e_amount ?>(Amount)</b></td>
+                          <td><b><?=$j_vat + $e_vat ?>(Vat)</td>
+                          <td><b><?=$j_total?> (Total)</b></td>
+                          <td></td> 
+                          <td></td>
+                          <td></td>                          
                         </tr>
                         
                       </tbody>

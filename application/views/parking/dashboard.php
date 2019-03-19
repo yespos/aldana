@@ -1,20 +1,21 @@
        <!-- page content -->
+       <?=totalDailyCollection() ?>
         <div class="right_col" role="main">
           <!-- top tiles -->
           <div class="row tile_count">
             <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
               <span class="count_top"><i class="fa fa-user-secret"></i> Total Customer</span>
-              <div class="count green">2</div>
+              <div class="count green"><?=totalCustomer() ?></div>
               <span class="count_bottom"><i class="green"> </i> </span>
             </div>
             <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
               <span class="count_top"><i class="fa fa-car"></i> Total Vehicle</span>
-              <div class="count">1</div>
+              <div class="count"><?=totalVehicle() ?></div>
               <span class="count_bottom"></span>
             </div>
             <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
               <span class="count_top"><i class="fa fa-money"></i> Today's Hourly Collections</span>
-              <div class="count green">0</div>
+              <div class="count green"><?=totalDailyCollection() ?></div>
               <span class="count_bottom"></span>
             </div>
             <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">

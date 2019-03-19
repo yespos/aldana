@@ -4,7 +4,7 @@
             <div class="row" id="PagePosition">
               <div class="col-md-12 col-sm-12 col-xs-12">
               <div class="x_panel">
-                  <button type="button" class="btn btn-success" onclick="javascript:window.location.href='<?=base_url('ecowash') ?>'"><i class="fa fa-plus"></i>New Ecowash</button>
+                  <!-- <button type="button" class="btn btn-success" onclick="javascript:window.location.href='<?=base_url('ecowash') ?>'"><i class="fa fa-plus"></i>New Ecowash</button> -->
               </div> 
               </div>
 <!--  in -->
@@ -25,7 +25,7 @@
                           <input id="to" name="to" class="date-picker form-control col-md-7 col-xs-12" value="<?php if(isset($post['to'])){ echo $post['to']; }  ?>"  type="text" readonly="readonly">
                         </div>
                         <div class="col-md-2 col-sm-3 col-xs-12">
-                          <label class="control-label" style="color:#000;" for="first-name">Payment Type </label>
+                          <label class="control-label" style="color:#000;" for="first-name">Payment Type</label>
                           <select class="select2_group form-control" name="pay_type" id="pay_type">
                            <option value="">Select</option>
                            <?php 

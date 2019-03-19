@@ -89,9 +89,9 @@ class Jobcard extends MY_Controller {
            }
            $data = array();
            $result = $this->calcution($_POST);
-           if(empty($result['total']))
+           if($result['total']<0)
            {
-               $response = array('success' => false, 'message' => 'Please Select at least One Service.');
+               $response = array('success' => false, 'message' => 'Total amount is Less then Zero.');
                echo json_encode($response);
                exit;
            }
@@ -222,8 +222,9 @@ class Jobcard extends MY_Controller {
 										'updated_at' => date('Y-m-d h:i:s'),
 										 );
                 $table_name = "jobcard";
-                // echo "<pre>"; print_r($data); exit;
+                // echo "<pre>"; print_r($data);
                 $job_id = $this->jobcard_model->insert_table($data,$table_name);
+               // $this->db->last_query(); exit;
                 if($job_id)
                 { 
                    $item = $result['item']; $quantity = $result['quantity'];
@@ -340,9 +341,15 @@ class Jobcard extends MY_Controller {
                echo json_encode($response);
                exit;
            } 
-           if(empty($result['total']))
+           /*if(empty($result['total']))
            {
                $response = array('success' => false, 'message' => 'Please Select at least One Service.');
+               echo json_encode($response);
+               exit;
+           }*/
+           if($result['total']<0)
+           {
+               $response = array('success' => false, 'message' => 'Total amount is Less then Zero.');
                echo json_encode($response);
                exit;
            }
@@ -397,7 +404,6 @@ class Jobcard extends MY_Controller {
         $rand = rand();
         if(isset($_POST))
         {
-          
                 $date = $_POST['DateIn']; 
                 $curr_date = date("Y-m-d", strtotime($date));
                 // date_format('Y-m-d',$date); 
@@ -1213,7 +1219,7 @@ class Jobcard extends MY_Controller {
 			if($this->input->post())
 			{
 			$post = $this->input->post();
-     /* echo "<pre>";
+      /*echo "<pre>";
 			 print_r($post); exit;*/
 			$whereJob['IsDeleted'] = 0;
 			$whereJob['id'] = $id;
@@ -1236,21 +1242,45 @@ class Jobcard extends MY_Controller {
         $totalPaidAmount = $post['paid_amount'] + $post['paid']; 
         $payamount = $post['paid_amount']; 
           }
-
-         
-
-       if($post['paytype'] ==8){
-          if($totalsum > $totalPaidAmount){
+        
+       if($totalsum > $totalPaidAmount){
             $response = array('success' => false, 'paymodal'=>'show', 'message' =>'The Entered Amount is exceeds the Total Service Amount.','totalamount' => $result['total']);
             echo json_encode($response);
             exit;
-             }
+             } 
+        
+        if($post['paytype'] ==8){
+            if($totalsum > $totalPaidAmount){
+            $response = array('success' => false, 'paymodal'=>'show', 'message' =>'The Entered Amount is exceeds the Total Service Amount.','totalamount' => $result['total']);
+            echo json_encode($response);
+            exit;
+             } 
+           if($payamount > $post['amount']){
+            $response = array('success' => false, 'paymodal'=>'show', 'message' =>'The Entered Amount is exceeds the Total Service Amount.','totalamount' => $result['total']);
+            echo json_encode($response);
+            exit;
+             }   
            if($payamount == 0){
             $response = array('success' => false, 'paymodal'=>'show', 'message' =>'Please Entered Amount.','totalamount' => $result['total']);
             echo json_encode($response);
             exit;
              }  
-            }   
+            } 
+            else{
+              if($payamount > $post['amount']){
+            $response = array('success' => false,'message' =>'The Entered Amount is exceeds the Total Service Amount.','totalamount' => $result['total']);
+            echo json_encode($response);
+            exit;
+             }
+
+            if($payamount == 0){
+             $response = array('success' => false, 'message' =>'Please Entered Amount.','totalamount' => $result['total']);
+             echo json_encode($response);
+             exit;
+             }
+            }
+
+
 			
       $dueamount = $post['total_amount'] - $totalPaidAmount;
 		  $data = array(
@@ -1273,7 +1303,7 @@ class Jobcard extends MY_Controller {
 			'updated_at'=>date('Y-m-d h:i:s'),
 	);
 	$payid = $this->payment_model->makePayments($data); 
- 
+  // echo $this->db->last_query();
 	
 	if($payid){
 		$datajob = array();
@@ -1301,39 +1331,41 @@ class Jobcard extends MY_Controller {
 									"status"   => $stat,
 										);
     if(empty($details->payment_status)){
-    $datajob["pay_type"] = $post['paytype'];
+    $dataJob["pay_type"] = $post['paytype'];
     }
-    if($post['pay_type']==8){
-     $datajob["pay_type"] = $post['paytype'];
+    if($post['paytype']==8){
+     $dataJob["pay_type"] = $post['paytype'];
     }
    /* print_r($dataJob);
 		 exit;*/
    $where['id'] = $post['jobcard_id'];
    $addjobid = $this->jobcard_model->update_table($where,'jobcard',$dataJob);
    $jobcard_id = $post['jobcard_id'];
-
+   if($payid){
     if($post['paytype']==8){
-            $totalsum = 0;
+            // $totalsum = 0;
             $multipay = $this->input->post('multipay');
             foreach ($multipay as $key => $value){
-              if($value){
+              if(!empty($value)){
               $paymentdata = array('payment_method' =>$key,'jobcard_id'=>$post['jobcard_id'], 'payment_id'=>$payid,'amount'=>$value);
               $this->db->insert('multipayment',$paymentdata);
              }
             }
         }
-
+      }
+      // echo $this->db->last_query(); exit;
+     $id = $post['jobcard_id'];
     // print_r($data['Invoice']); exit;
 		// redirect("Jobcard/invoice/$jobcard_id", 'refresh');
 		 if($status ==19)
 		 {
          // $this->paymentReceipt($payid);
-         $response = array('success' => true,'id'=>$payid , 'message' => 'Payment successfully');
+         $response = array('success' => true,'id'=>$id , 'message' => 'Payment successfully');
                echo json_encode($response);
                exit;
 		 }
 		 else {
-			    $response = array('success' => true,'id'=>$payid , 'message' => 'Payment successfully');
+			    $response = array('success' => true,'id'=>$id , 'message' => 'Payment successfully');
                echo json_encode($response);
                exit;
 		 }

@@ -109,6 +109,32 @@ function multipayment($id,$payid =null)
     return $CI->db->get('multipayment')->result();
 }
 
+function totalCustomer()
+{  
+    $CI = &get_instance();
+    $query = $CI->db->where('IsDeleted',0)->get('customer');
+    $count = $query->num_rows();
+    return $count;
+}
+
+function totalVehicle()
+{  
+    $CI = &get_instance();
+    $query = $CI->db->where('IsDeleted',0)->get('vehicle');
+    $count = $query->num_rows();
+    return $count;
+}
+
+function totalDailyCollection()
+{  
+    $CI = &get_instance();
+    $query = $CI->db->select('sum(total) as total')->where('IsDeleted',0)->get('jobcard');
+     $total = $query->result();
+   // print_r($total);
+   // echo $CI->db->last_query();
+     return $total;
+}
+
 function paymentstatus($id)
 {  
     $CI = &get_instance();

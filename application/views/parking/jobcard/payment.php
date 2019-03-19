@@ -123,7 +123,7 @@
                         ?>
                   <div class="form-group">
                    <label class="control-label" for="phone"><?=ucfirst($value->name) ?></label>
-                   <input type="number" class="form-control" name="multipay[<?=$value->id  ?>]" id="multipay<?=$value->id  ?>" value="0" step="0.01">
+                   <input type="number" class="form-control" name="multipay[<?=$value->id  ?>]" id="multipay<?=$value->id  ?>" value="0" step="0.01" onkeyup="calpayamount(<?=$value->id ?>)">
                   </div> 
                   <?php  } } }  ?>
                   
@@ -180,7 +180,8 @@
         e.preventDefault();
 //        var data = $(this).serialize();
         var action = $(this).attr('action');
-        var redirect = '<?=base_url('jobcard/paymentReceipt')?>';
+        // var redirect = '<?=base_url('jobcard/paymentReceipt')?>';
+        var redirect = '<?=base_url('jobcard/jobcard_print')?>';
 //        alert(action);return false;
         $.ajax({
             url: action,
@@ -223,6 +224,45 @@
 
         });
     });
+
+    function calpayamount(type){
+       var amount = parseFloat($('#amount').val()); 
+       var cash = parseFloat($('#multipay1').val());
+       var card = parseFloat($('#multipay2').val());
+       var credit = parseFloat($('#multipay4').val());
+       var total =  cash + credit + card;
+         //alert(total);
+       if(type==1) { 
+       if(cash)
+       {
+           var cc = credit + cash;
+           if(amount>cc){
+            card = amount-cash;
+            $('#multipay2').val(card);
+           }
+           else{
+            $('#multipay2').val(0);
+           }
+           // alert(amount);
+       }
+     }
+      
+      if(type==2) { 
+       if(card)
+       {
+           var cc = card + cash;
+           if(amount>cc){
+            credit = amount-cc;
+            $('#multipay4').val(credit);
+           }
+           else{
+            $('#multipay4').val(0);
+           }
+           // alert(amount);
+          
+       }
+     }
+    }
     </script> 
     <!-- /Datatables -->
     

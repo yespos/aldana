@@ -94,7 +94,7 @@ class Purchase_model extends MY_Model {
     public function addModel($data, $invoice) {
 
         $sql = "insert into purchases (date,reference_no,supplier_id,warehouse_id,total,discount_value,tax_value,note,user) values(?,?,?,?,?,?,?,?,?)";
-        if ($this->db->query($sql, $data)) {
+        if ($this->db->insert("purchases", $data)) {
             /* print_r($sql);
               print_r($data);
               exit(); */
