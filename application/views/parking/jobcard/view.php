@@ -1,14 +1,30 @@
+<?php // print_r($_SESSION); exit;  ?>
+<?php // print_r($details); exit;  ?>  
+<style type="text/css" media="print">
+    @page 
+    {
+        size: auto;   /* auto is the initial value */
+        margin: 0mm;  /* this affects the margin in the printer settings */
+    }
+	.nav_menu,
+    #non-printable {
+        display: none !important;
+    }
+	.pr,
+    #non-printable {
+        display: none !important;
+    }
+    #printable {
+        display: block;
+    }
+</style>
   <!-- page content -->
   <div class="right_col" role="main">
           <div class="">
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <!--Alerts Start-->
-                  <div class="x_content bs-example-popovers">
-                    <!-- Search Dept -->
-                    
-                    <!-- End -->
-                  </div>
+                  
                   <!--Alerts End-->
                   <div class="x_content">
 				  <div class="row">
@@ -25,7 +41,7 @@
                                 <hr>
                                 <form role="form" class="" id="formUpdatejobcard" method="post" autocomplete="off" action="<?php echo base_url('jobcardzone/update_jobcard_act'); ?>" enctype='multipart/form-data'> 
                                 <div class="row">
-                                    <div class="col-md-12">
+                                    <div class="col-md-12" style="width:100%;">
                                         <div class="pull-left">
                                             <address>
                                                 <?php if(!empty($BranchDetails)) { ?>
@@ -65,7 +81,7 @@
                                             </address>
                                         </div>
                                     </div><?php //echo '<pre>';var_dump($details);?>
-                                    <div class="col-md-12">
+                                    <div class="col-md-12 col-sm-12" style="width:100%;">
                                         <div class="table-responsive m-t-40">
                                             <table class="table table-hover" style="width:100%;">
                                                 <tbody>
@@ -176,18 +192,19 @@
                             <td colspan="7">&nbsp; </td>
                         </tr>                                                          
                                     </tbody>
-                                </table>    
+                                </table> 
+                                
                             </div>
                         </div>
                             </div>
-                        </div>
                                 </form>
                             </div>
                         </div>
+                         <div class="col-md-12 text-center pr" >
+                     <button onclick="javascript:window.print();" class="btn btn-primary btn-outline noprint" type="button"> <span><i class="fa fa-print"></i>Print</span> </button>
+                    </div>   
                     </div>
-                    <div class="col-md-12" >
-                    <center> <button onclick="javascript:window.print();" class="btn btn-primary btn-outline noprint" type="button"> <span><i class="fa fa-print"></i>Print</span> </button> </center>
-                    </div>
+                    
                 </div>
             </div>
         </div>

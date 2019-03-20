@@ -1033,6 +1033,36 @@ class Jobcard extends MY_Controller {
         $data['subview'] = $this->load->view('parking/jobcard/view', $data, TRUE);
         $this->load->view('_layout_main', $data); //page load
     }
+	
+	public function invoice()
+    {
+        $data = array(); 
+        $table_name = "cartype";
+        $where1['echo_status'] = 'Yes';
+        $data['cartype'] = $this->jobcard_model->show_list($table_name,$where1);
+      
+				$table_name = "jobcard";
+				$where['jobcardtype'] = 2;
+        $data['lists'] = $this->jobcard_model->show_list($table_name,$where);
+       
+        $data['subview'] = $this->load->view('parking/jobcard/invoice', $data, TRUE);
+        $this->load->view('_layout_main', $data); //page load
+    }
+	
+	public function bill()
+    {
+        $data = array(); 
+        $table_name = "cartype";
+        $where1['echo_status'] = 'Yes';
+        $data['cartype'] = $this->jobcard_model->show_list($table_name,$where1);
+      
+				$table_name = "jobcard";
+				$where['jobcardtype'] = 2;
+        $data['lists'] = $this->jobcard_model->show_list($table_name,$where);
+       
+        $data['subview'] = $this->load->view('parking/jobcard/bill', $data, TRUE);
+        $this->load->view('_layout_main', $data); //page load
+    }
 
 
     public function daily_report($action =null)
